@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+
+    {% if all_items %}
+    <br>
+    <div class="container">
+    <form class="form-inline my-2 my-lg-0" method= "POST">
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="{{ all_items.item }}" value="{{ all_items.item }}" aria-label="Search" name="item">
+
+        <input type="hidden" value="{{ all_items.completed }}" name="completed">
+
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Edit Schedule</button>
+      </form>
+    </div>
+    {% endif %}
+
+{% endblock %}
